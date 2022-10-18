@@ -7,6 +7,30 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  Hello World
+  <main>
+    <div class="city-info-container">
+      <div class="city-name">--</div>
+      <div class="city-time">--</div>
+    </div>
+
+    <div class="weather-info-container">
+      <div class="temperature"><span class="temperature-num">--</span>&#176<span class="temperature-symbol">C</span>
+      </div>
+      <div class="weather-desc">
+        <div class="description">--</div>
+        <img src="" alt="">
+      </div>
+    </div>
+    <form novalidate>
+      <input type="text" name="city" id="city" placeholder="Winnepeg">
+      <button type="submit">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+  </main>
+  <div class="loader"></div>
 </body>
 </html>
