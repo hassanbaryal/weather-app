@@ -9,7 +9,7 @@ import moon from '../assets/images/moon.svg';
 import sun from '../assets/images/sun.svg';
 import xMark from '../assets/images/x.svg';
 
-function updateWeatherIcon (icon = 'x') {
+function updateWeatherIcon(icon = 'x') {
   const weatherIcon = document.querySelector('.weather-desc img');
 
   if (icon === '01d') {
@@ -48,7 +48,13 @@ export default function updateInfo(data) {
   const temperature = document.querySelector('.temperature-num');
   const weatherDescription = document.querySelector('.description');
   if (Object.hasOwn(data, 'name')) {
-    cityName.textContent = `${data.name}, ${data.sys.country}`;
+    let country;
+    if (data.sys.country === undefined) {
+      country = '-';
+    } else {
+      country = data.sys.country;
+    }
+    cityName.textContent = `${data.name}, ${country}`;
     const time = fromUnixTime((data.dt + data.timezone));
     cityTime.textContent = time;
     temperature.textContent = `${Math.round(data.main.temp)}`;
