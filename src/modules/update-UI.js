@@ -55,7 +55,8 @@ export default function updateInfo(data) {
       country = data.sys.country;
     }
     cityName.textContent = `${data.name}, ${country}`;
-    const time = fromUnixTime((data.dt + data.timezone));
+    let time = fromUnixTime((data.dt + data.timezone)).toString();
+    time = time.slice(0, time.indexOf('GMT'));
     cityTime.textContent = time;
     temperature.textContent = `${Math.round(data.main.temp)}`;
     weatherDescription.textContent = `${data.weather[0].description.toUpperCase()}`;
